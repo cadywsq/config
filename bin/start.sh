@@ -1,5 +1,7 @@
 #!/bin/bash
 pacmd set-default-sink 0
+powerline-daemon
+powerline-config tmux setup
 
 # Desktop environment
 gnome-settings-daemon &
