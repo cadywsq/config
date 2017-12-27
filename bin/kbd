@@ -1,0 +1,5 @@
+#!/bin/sh
+xset dpms 300 0 0
+xset +dpms
+xset r rate 250 75
+xmodmap ~/.Xmodmap
