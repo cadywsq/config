@@ -25,14 +25,10 @@ nnoremap <M-h> :TmuxNavigateLeft<cr>
 nnoremap <M-j> :TmuxNavigateDown<cr>
 nnoremap <M-k> :TmuxNavigateUp<cr>
 nnoremap <M-l> :TmuxNavigateRight<cr>
-nnoremap <M-J> <C-w>J
-nnoremap <M-K> <C-w>K
-nnoremap <M-H> <C-w>H
-nnoremap <M-L> <C-w>L
-nnoremap <M-=> <C-w>+
-nnoremap <M--> <C-w>-
-nnoremap <M-.> <C-w>.
-nnoremap <M-,> <C-w>,
+imap <M-h> <C-w>h
+imap <M-j> <C-w>j
+imap <M-k> <C-w>k
+imap <M-l> <C-w>l
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader><space>'
@@ -264,32 +260,6 @@ vnoremap k gk
 vnoremap gj j
 vnoremap gk k
 
-nnoremap <M-j> 3<C-w>j
-nnoremap <M-k> 3<C-w>k
-nnoremap <M-h> 3<C-w>h
-nnoremap <M-l> 3<C-w>l
-nnoremap <M-J> 3<C-w>J
-nnoremap <M-K> 3<C-w>K
-nnoremap <M-H> 3<C-w>H
-nnoremap <M-L> 3<C-w>L
-nnoremap <M-=> 3<C-w>+
-nnoremap <M--> 3<C-w>-
-nnoremap <M-.> 3<C-w>.
-nnoremap <M-,> 3<C-w>,
-
-inoremap <M-j> 3<C-w>j
-inoremap <M-k> 3<C-w>k
-inoremap <M-h> 3<C-w>h
-inoremap <M-l> 3<C-w>l
-inoremap <M-J> 3<C-w>J
-inoremap <M-K> 3<C-w>K
-inoremap <M-H> 3<C-w>H
-inoremap <M-L> 3<C-w>L
-inoremap <M-+> 3<C-w>=
-inoremap <M--> 3<C-w>-
-inoremap <M-.> 3<C-w>.
-inoremap <M-,> 3<C-w>,
-
 nnoremap <C-Tab> <C-w>w
 vnoremap <C-Tab> <C-w>w
 inoremap <C-Tab> <C-w>w
@@ -326,6 +296,23 @@ cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 noremap <C-z> <C-a>
+
+nnoremap <M-J> <C-w>J
+nnoremap <M-K> <C-w>K
+nnoremap <M-H> <C-w>H
+nnoremap <M-L> <C-w>L
+nnoremap <M-=> <C-w>+
+nnoremap <M--> <C-w>-
+nnoremap <M-.> <C-w>.
+nnoremap <M-,> <C-w>,
+inoremap <M-J> <C-w>J
+inoremap <M-K> <C-w>K
+inoremap <M-H> <C-w>H
+inoremap <M-L> <C-w>L
+inoremap <M-=> <C-w>+
+inoremap <M--> <C-w>-
+inoremap <M-.> <C-w>.
+inoremap <M-,> <C-w>,
 nnoremap <silent> <F3> :set hlsearch!<bar>echo 'highlight search '.(&hlsearch==1?'on':'off')<CR>
 imap <F3> <C-o><F3>
 set pastetoggle=<F2>
