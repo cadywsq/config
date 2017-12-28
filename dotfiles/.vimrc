@@ -15,6 +15,13 @@ Plugin 'airblade/vim-gitgutter'
 set signcolumn=yes
 let g:gitgutter_diff_args = 'HEAD'
 
+Plugin 'bkad/CamelCaseMotion'
+omap <silent> iw <Plug>CamelCaseMotion_ie
+xmap <silent> iw <Plug>CamelCaseMotion_ie
+nmap <silent> w viw
+vmap <silent> w <Plug>CamelCaseMotion_e
+nnoremap W viw
+
 Plugin 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
@@ -323,10 +330,6 @@ set pastetoggle=<F2>
 nnoremap <silent> <F4> :set spell!<bar>echo 'spell '.(&spell==1?'on':'off')<CR>
 imap <F4>  <C-o><F4>
 nnoremap U :redo<CR>
-nnoremap w viw
-vnoremap w e
-nnoremap W viW
-vnoremap W E
 nnoremap <silent> <C-s> :wa<CR>
 inoremap <C-s> <Esc>:w<CR>
 vnoremap <C-s> v:w<CR>
