@@ -60,6 +60,10 @@ let NERDTreeWinSize=48
 let NERDTreeMouseMode=3
 let NERDTreeShowHidden=1
 
+Plugin 'scrooloose/nerdcommenter'
+nnoremap s :call NERDComment(0,"toggle")<C-m>
+vnoremap s :call NERDComment(0,"toggle")<C-m>
+
 Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
