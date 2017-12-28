@@ -18,14 +18,17 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
+
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/usr/local/google/home/tgeng/.oh-my-zsh
+export ZSH=/usr/local/google/home/tgeng/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -147,3 +150,8 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
   avahi daemon git mail nobody uuidd bin dbus http mpd ntp postgres xbmc colord ftp mysql polkitd 'systemd-*'
 
 source ~/.zsh/fzy_support.zsh
+
+# somehow syntax highlight does not work without this additional sourcing.
+if [[ -e ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
