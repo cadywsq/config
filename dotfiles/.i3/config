@@ -36,8 +36,8 @@ exec compton
 # exec kupfer
 exec gnome-do
 exec TERM=screen-256color-bce tilda
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 1dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 1dB- unmute
+bindsym XF86AudioRaiseVolume exec amixer sset Master 3%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 3%-
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 # bindsym XF86ScreenSaver exec sudo pm-suspend
