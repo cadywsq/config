@@ -1,5 +1,5 @@
 tilda_config_version="1.1.11"
-command="tmux -2"
+command="tmux -2 new-session -A -s dropdown"
 font="Hack 11"
 key="Search"
 addtab_key="<Shift><Control>t"
