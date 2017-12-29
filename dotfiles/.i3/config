@@ -89,7 +89,7 @@ for_window [title="^Database Console" ] floating disable
 
 assign [title="^Database Console"] 6
 assign [title="Untitled - Google Chrome"] Test
-for_window [instance="crx_ljclpkphhpbpinifbeabbhlfddcpfdde" ] floating enable move absolute position 3440 px 775 px resize set 400 px 400 px
+for_window [instance="crx_nckgahadagoaajjgafhacjanaoiihapd" ] floating enable move absolute position 4720 px 1014 px resize set 400 px 400 px
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -213,7 +213,7 @@ bindsym $mod+Mod1+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Mod1+e exec i3-msg exit
 
-mouse_warping none
+# mouse_warping none
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
