@@ -19,27 +19,8 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-
-# =============================================================================
-# completiton
-# =============================================================================
-fpath=("${0:h}/zsh-completions" $fpath)
-autoload -Uz compinit && compinit -i
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
-zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' verbose yes
-# hide uninteresting users
-zstyle ':completion:*:*:*:users' ignored-patterns \
-  avahi daemon git mail nobody uuidd bin dbus http mpd ntp postgres xbmc colord ftp mysql polkitd 'systemd-*'
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 # =============================================================================
 # zplug
@@ -47,10 +28,10 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 source ~/.zplug/init.zsh
 
 zplug "Tarrasch/zsh-bd"
-zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2, use:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-autosuggestions"
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
+zplug "zsh-users/zsh-completions"
+zplug "jimhester/per-directory-history"
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/common-alias", from:oh-my-zsh
 zplug "plugins/compleat", from:oh-my-zsh
@@ -62,10 +43,8 @@ zplug "plugins/git-extra", from:oh-my-zsh
 zplug "plugins/jsontools", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/urltools", from:oh-my-zsh
-zplug "plugins/per-directory-history", from:oh-my-zsh
-zplug "~/.zsh/fzy_support.zsh", from:local
-
 zplug "themes/agnoster", from:oh-my-zsh, as:theme
+zplug "~/.zsh", from:local, use:"*.zsh"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -74,30 +53,4 @@ if ! zplug check --verbose; then
     fi
 fi
 
-# Then, source plugins and add commands to $PATH
 zplug load
-
-# My stuff
-pathto(){
-    echo -n $PWD/$1 | xclip -selection clipboard
-}
-
-cdt() {
-    cd $1 2> /dev/null || cd $(dirname $1)
-}
-
-function sj() {
-    if [[ $PWD =~ '(.*)/javatests(.*)' ]]; then
-        cd "${match[1]}/java${match[2]}"
-    else
-        cd "${PWD/\/google3\/java//google3/javatests}"
-    fi
-}
-
-function bb() {
-  if [[ $PWD =~ '(.*)/blaze-bin(.*)' ]]; then
-    cd "${match[1]}${match[2]}"
-  else
-    cd "${PWD/\/google3//google3/blaze-bin}"
-  fi
-}

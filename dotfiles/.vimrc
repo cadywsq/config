@@ -270,6 +270,8 @@ vnoremap j gj
 vnoremap k gk
 vnoremap gj j
 vnoremap gk k
+nnoremap ZZ :xa<CR>
+nnoremap ZQ :qa!<CR>
 
 nnoremap <C-Tab> <C-w>w
 vnoremap <C-Tab> <C-w>w
