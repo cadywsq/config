@@ -52,7 +52,7 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
         operator pcap polkitd postfix postgres privoxy pulse pvm quagga radvd \
         rpc rpcuser rpm rtkit scard shutdown squid sshd statd svn sync tftp \
         usbmux uucp vcsa wwwrun xfs '_*'
-
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # ... unless we really want to.
 zstyle '*' single-ignored show
 

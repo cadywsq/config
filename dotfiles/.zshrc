@@ -27,12 +27,12 @@ bindkey "^[[B" history-beginning-search-forward
 # =============================================================================
 source ~/.zplug/init.zsh
 
+zplug "arzzen/calc.plugin.zsh"
 zplug "Tarrasch/zsh-bd"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2, use:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "jimhester/per-directory-history"
-zplug "plugins/common-alias", from:oh-my-zsh
 zplug "plugins/compleat", from:oh-my-zsh
 zplug "plugins/dirhistory", from:oh-my-zsh
 zplug "plugins/dirpersist", from:oh-my-zsh
@@ -43,7 +43,9 @@ zplug "plugins/git-extra", from:oh-my-zsh
 zplug "plugins/jsontools", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/urltools", from:oh-my-zsh
-zplug "themes/agnoster", from:oh-my-zsh, as:theme
+zplug "bhilburn/powerlevel9k", as:theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs root_indicator)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time)
 zplug "~/.zsh_tgeng_extra", from:local, use:"*.zsh"
 
 if ! zplug check --verbose; then
@@ -54,3 +56,5 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+# Somehow this alias in calc plugin does not work without repeating it here.
+aliases[=]='noglob __calc_plugin'
