@@ -40,7 +40,6 @@ zplug "plugins/encode64", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/git-extra", from:oh-my-zsh
-zplug "plugins/globalias", from:oh-my-zsh
 zplug "plugins/jsontools", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/urltools", from:oh-my-zsh
