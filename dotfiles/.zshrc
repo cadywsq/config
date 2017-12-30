@@ -32,19 +32,20 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2, use:zsh-syntax-highlighting.
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "jimhester/per-directory-history"
-zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/common-alias", from:oh-my-zsh
 zplug "plugins/compleat", from:oh-my-zsh
 zplug "plugins/dirhistory", from:oh-my-zsh
 zplug "plugins/dirpersist", from:oh-my-zsh
 zplug "plugins/encode64", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/git-extra", from:oh-my-zsh
+zplug "plugins/globalias", from:oh-my-zsh
 zplug "plugins/jsontools", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/urltools", from:oh-my-zsh
 zplug "themes/agnoster", from:oh-my-zsh, as:theme
-zplug "~/.zsh", from:local, use:"*.zsh"
+zplug "~/.zsh_tgeng_extra", from:local, use:"*.zsh"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
