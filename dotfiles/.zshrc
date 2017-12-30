@@ -1,5 +1,7 @@
 stty -ixon -ixoff
-
+# =============================================================================
+# history
+# =============================================================================
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -18,122 +20,11 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-source ~/.zplug/repos/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH=/usr/local/google/home/tgeng/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  common-alias
-  compleat
-  dirhistory
-  dirpersist
-  encode64
-  fasd
-  git-extra
-  jsontools
-  tmux
-  urltools
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# =============================================================================
+# completiton
+# =============================================================================
 fpath=("${0:h}/zsh-completions" $fpath)
-
 autoload -Uz compinit && compinit -i
-
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
@@ -146,14 +37,67 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
-
 # hide uninteresting users
 zstyle ':completion:*:*:*:users' ignored-patterns \
   avahi daemon git mail nobody uuidd bin dbus http mpd ntp postgres xbmc colord ftp mysql polkitd 'systemd-*'
 
-source ~/.zsh/fzy_support.zsh
+# =============================================================================
+# zplug
+# =============================================================================
+source ~/.zplug/init.zsh
 
-# somehow syntax highlight does not work without this additional sourcing.
-if [[ -e ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zplug "Tarrasch/zsh-bd"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2, use:zsh-syntax-highlighting.zsh
+zplug "zsh-users/zsh-autosuggestions"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/common-alias", from:oh-my-zsh
+zplug "plugins/compleat", from:oh-my-zsh
+zplug "plugins/dirhistory", from:oh-my-zsh
+zplug "plugins/dirpersist", from:oh-my-zsh
+zplug "plugins/encode64", from:oh-my-zsh
+zplug "plugins/fasd", from:oh-my-zsh
+zplug "plugins/git-extra", from:oh-my-zsh
+zplug "plugins/jsontools", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/urltools", from:oh-my-zsh
+zplug "plugins/per-directory-history", from:oh-my-zsh
+zplug "~/.zsh/fzy_support.zsh", from:local
+
+zplug "themes/agnoster", from:oh-my-zsh, as:theme
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+# My stuff
+pathto(){
+    echo -n $PWD/$1 | xclip -selection clipboard
+}
+
+cdt() {
+    cd $1 2> /dev/null || cd $(dirname $1)
+}
+
+function sj() {
+    if [[ $PWD =~ '(.*)/javatests(.*)' ]]; then
+        cd "${match[1]}/java${match[2]}"
+    else
+        cd "${PWD/\/google3\/java//google3/javatests}"
+    fi
+}
+
+function bb() {
+  if [[ $PWD =~ '(.*)/blaze-bin(.*)' ]]; then
+    cd "${match[1]}${match[2]}"
+  else
+    cd "${PWD/\/google3//google3/blaze-bin}"
+  fi
+}

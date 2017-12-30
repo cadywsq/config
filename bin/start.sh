@@ -2,6 +2,7 @@
 pacmd set-default-sink 0
 powerline-daemon
 powerline-config tmux setup
+TERM=screen-256color-bce tilda
 
 # Desktop environment
 gnome-settings-daemon &
@@ -28,7 +29,3 @@ synclient ClickFinger3=3
 synclient TapButton3=3
 synclient TapButton2=2
 synclient SingleTapTimeout=50
-
-if hash sogou-qimpanel; then
-    sogou-qimpanel
-fi

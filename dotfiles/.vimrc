@@ -62,7 +62,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333333   ctermbg=235
 
 Plugin 'scrooloose/nerdtree'
 nnoremap <leader>f :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=48
 let NERDTreeMouseMode=3
 let NERDTreeShowHidden=1
